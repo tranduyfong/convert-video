@@ -38,6 +38,15 @@ export async function run(
       signal.removeEventListener("abort", stop);
       if (signal.aborted) return reject(signal.reason);
       if (code === 0) return resolve(output);
+      if (/confirm.*bot|sign in to confirm|verify.*(?:human|bot)/i.test(errors)) {
+        console.error("Media source rejected request: verification_required");
+        return reject(
+          new Problem(
+            503,
+            "YouTube yêu cầu xác minh máy chủ. Hiện chưa thể xử lý video này. Vui lòng thử lại sau.",
+          ),
+        );
+      }
       if (
         /403|429|confirm.*bot|sign in|verify|login required|forbidden/i.test(
           errors,
