@@ -11,7 +11,7 @@ export const cfg = {
   concurrent: number("MAX_CONCURRENT", 2),
   waiting: number("MAX_WAITING", 8),
   analyses: number("MAX_ANALYSES", 3),
-  duration: number("MAX_DURATION_SECONDS", 1800),
+  duration: Math.min(360, number("MAX_DURATION_SECONDS", 360)),
   bytes: number("MAX_FILE_MB", 256) * 1048576,
   timeout: number("JOB_TIMEOUT_SECONDS", 600) * 1000,
   ttl: number("FILE_TTL_SECONDS", 900) * 1000,

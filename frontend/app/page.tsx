@@ -35,8 +35,7 @@ export default function Home() {
             và chuyển sang <em>MP3</em>
           </h1>
           <p className="intro">
-            Dán liên kết, chọn chất lượng và tải video hoặc âm thanh về thiết
-            bị.
+            Dán liên kết YouTube của video dưới 6 phút để tải MP4 hoặc MP3.
           </p>
           <Tool />
           <div className="formats">

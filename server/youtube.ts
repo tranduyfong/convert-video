@@ -44,14 +44,14 @@ export function inspect(info: Info, url: string) {
     );
   if (info.availability && !["public", "unlisted"].includes(info.availability))
     throw new Problem(422, "Video bị giới hạn quyền truy cập.");
-  if (
-    !info.duration ||
-    !Number.isFinite(info.duration) ||
-    info.duration > cfg.duration
-  )
+  if (!info.duration || !Number.isFinite(info.duration) || info.duration <= 0)
+    throw new Problem(422, "Không xác định được thời lượng video.");
+  if (info.duration >= cfg.duration)
     throw new Problem(
       422,
-      "Thời lượng video vượt giới hạn hoặc chưa xác định.",
+      cfg.duration === 360
+        ? "Chỉ hỗ trợ video dưới 6 phút. Hãy chọn video ngắn hơn."
+        : `Chỉ hỗ trợ video dưới ${cfg.duration} giây. Hãy chọn video ngắn hơn.`,
     );
   const streams = (info.formats || [])
     .filter(

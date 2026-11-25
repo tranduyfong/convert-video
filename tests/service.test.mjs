@@ -27,6 +27,17 @@ const info = {
   ],
 };
 const video = inspect(info, url);
+test("the duration limit excludes the exact cutoff before format selection", () => {
+  assert.ok(cfg.duration <= 360);
+  for (const duration of [cfg.duration - 1, cfg.duration - 0.001]) {
+    const accepted = inspect({ ...info, duration }, url);
+    assert.equal(choose(accepted, "mp4", 720).quality, 720);
+    assert.equal(choose(accepted, "mp3", 192).quality, 192);
+  }
+  for (const duration of [cfg.duration, cfg.duration + 1, -1, NaN]) {
+    assert.throws(() => inspect({ ...info, duration }, url), { status: 422 });
+  }
+});
 test("URL parsing, canonicalization and hostname allowlist", () => {
   for (const link of [
     url + "&list=ignore",

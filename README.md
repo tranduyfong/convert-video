@@ -39,7 +39,7 @@ video.example.org {
 | PORT | 3000 | Cổng local hoặc cổng host của Compose. |
 | MAX_CONCURRENT, MAX_WAITING | 2, 8 | Số tác vụ chạy và số tác vụ chờ tối đa. |
 | MAX_ANALYSES | 3 | Giới hạn số lượt phân tích đồng thời. |
-| MAX_DURATION_SECONDS | 1800 | Thời lượng nguồn tối đa. |
+| MAX_DURATION_SECONDS | 360 | Chỉ nhận video ngắn hơn ngưỡng này. Có thể giảm ngưỡng; giới hạn cứng là dưới 6 phút cho cả MP4 và MP3. |
 | MAX_FILE_MB | 256 | Số MiB tối đa cho mỗi luồng tải và cho file kết quả. Thư mục đang xử lý có thể cần tới ba lần mức này. |
 | JOB_TIMEOUT_SECONDS | 600 | Thời gian chạy tối đa của tác vụ kể từ lúc bắt đầu xử lý. Phân tích tối đa 60 giây. |
 | FILE_TTL_SECONDS | 900 | Thời gian cấp quyền tải sau khi file sẵn sàng. Dọn thư mục định kỳ, chờ lượt tải đang mở kết thúc. |
