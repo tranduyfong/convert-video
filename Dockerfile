@@ -1,3 +1,4 @@
+ARG SITE_URL=https://downloadvideo.id.vn
 FROM node:22-bookworm-slim AS build
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -6,13 +7,15 @@ RUN npm ci
 COPY frontend ./frontend
 COPY server ./server
 ARG BRAND_NAME=TubeGo
-ARG SITE_URL=http://localhost:3000
+ARG SITE_URL
 RUN BRAND_NAME="$BRAND_NAME" SITE_URL="$SITE_URL" npm run build && npm prune --omit=dev
 
 FROM node:22-bookworm-slim
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates ffmpeg python3-venv && rm -rf /var/lib/apt/lists/*
 ARG YT_DLP_VERSION=2026.11.23
 RUN python3 -m venv /opt/media && /opt/media/bin/pip install --no-cache-dir "yt-dlp[default]==${YT_DLP_VERSION}"
+ARG SITE_URL
+ENV SITE_URL="${SITE_URL}"
 ENV PATH="/opt/media/bin:${PATH}" NODE_ENV=production HOST=0.0.0.0 TEMP_ROOT=/app/tmp
 WORKDIR /app
 COPY --from=build /app/node_modules ./node_modules

@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 test("exported homepage and sitemap", async () => {
   const html = await readFile("frontend/out/index.html", "utf8");
-  const origin = new URL(process.env.SITE_URL || "http://localhost:3000")
+  const origin = new URL(process.env.SITE_URL || "https://downloadvideo.id.vn")
     .origin;
   for (const part of [
     'lang="vi"',

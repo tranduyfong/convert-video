@@ -5,7 +5,7 @@ export default {
   trailingSlash: true,
   devIndicators: false,
   env: {
-    SITE_URL: process.env.SITE_URL || "http://localhost:3000",
+    SITE_URL: process.env.SITE_URL || "https://downloadvideo.id.vn",
     BRAND_NAME: process.env.BRAND_NAME || "TubeGo",
   },
 };

@@ -14,7 +14,7 @@ npm run build
 npm start
 ```
 
-Mở [TubeGo trên máy cá nhân](http://localhost:3000). Máy chủ cần kết nối ra YouTube khi phân tích và xử lý. Để sửa giao diện, chạy lại `npm run build:web` rồi tải lại trang. Khi sửa backend, chạy `npm run build:api` và khởi động lại tiến trình Node.
+Mở [TubeGo trên máy cá nhân](http://127.0.0.1:3000). Máy chủ cần kết nối ra YouTube khi phân tích và xử lý. Để sửa giao diện, chạy lại `npm run build:web` rồi tải lại trang. Khi sửa backend, chạy `npm run build:api` và khởi động lại tiến trình Node.
 
 ## Triển khai VPS
 
@@ -35,7 +35,7 @@ video.example.org {
 
 | Biến | Mặc định | Tác dụng |
 | --- | --- | --- |
-| BRAND_NAME, SITE_URL | TubeGo, http://localhost:3000 | Thương hiệu và URL gốc của HTML, canonical, metadata, sitemap. Build lại frontend khi đổi. SITE_URL HTTPS bật cookie Secure. |
+| BRAND_NAME, SITE_URL | TubeGo, https://downloadvideo.id.vn | Thương hiệu và URL gốc của HTML, canonical, metadata, sitemap. Build lại frontend khi đổi. SITE_URL HTTPS bật cookie Secure. |
 | PORT | 3000 | Cổng local hoặc cổng host của Compose. |
 | MAX_CONCURRENT, MAX_WAITING | 2, 8 | Số tác vụ chạy và số tác vụ chờ tối đa. |
 | MAX_ANALYSES | 3 | Giới hạn số lượt phân tích đồng thời. |
