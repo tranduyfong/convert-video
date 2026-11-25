@@ -1,0 +1,33 @@
+{
+  "name": "tubego",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:api && npm run build:web",
+    "build:api": "tsc -p server",
+    "build:web": "next build frontend",
+    "typecheck": "tsc -p server --noEmit && tsc -p frontend --noEmit",
+    "start": "node dist/main.js",
+    "test": "npm run build:api && node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@fontsource/be-vietnam-pro": "^5.2.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "lucide-react": "^0.577.0",
+    "next": "^16.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "playwright-core": "^1.65.1",
+    "prettier": "^3.10.1",
+    "typescript": "^5.9.0"
+  }
+}

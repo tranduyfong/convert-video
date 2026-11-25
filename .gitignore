@@ -1,0 +1,8 @@
+node_modules/
+frontend/.next/
+frontend/out/
+dist/
+.tools/
+.env
+*.tsbuildinfo
+.tmp/

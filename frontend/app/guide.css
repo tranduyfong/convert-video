@@ -1,0 +1,154 @@
+.tg-guide {
+  width: min(1080px, calc(100% - 3rem));
+  margin: 0 auto;
+  color: #242528;
+}
+.tg-guide section {
+  padding: clamp(2.75rem, 5vw, 4.25rem) 0;
+  scroll-margin-top: 1.25rem;
+}
+.tg-guide section + section {
+  border-top: 1px solid #e5e5e8;
+}
+.tg-guide h2 {
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.3;
+  letter-spacing: -0.045em;
+  margin: 0 0 1.65rem;
+  color: #242528;
+}
+.tg-step-grid,
+.tg-format-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+.tg-step-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.tg-step {
+  border-radius: 15px;
+  border: 1px solid #e4e3e5;
+  overflow: hidden;
+  background: #fff;
+}
+.tg-step-1 {
+  --tg-tint: #fff0ef;
+  --tg-art-color: #d27580;
+  --tg-number-color: #95414c;
+}
+.tg-step-2 {
+  --tg-tint: #f1f0fc;
+  --tg-art-color: #898ac2;
+  --tg-number-color: #5d5990;
+}
+.tg-step-3 {
+  --tg-tint: #e9f6f1;
+  --tg-art-color: #75a99a;
+  --tg-number-color: #366c61;
+}
+.tg-art-panel {
+  display: grid;
+  place-items: center;
+  height: 118px;
+  background-color: var(--tg-tint);
+  color: var(--tg-art-color);
+}
+.tg-step-art {
+  width: min(100%, 310px);
+  height: 100%;
+}
+.tg-step-copy {
+  padding: 1.1rem 1.25rem 1.3rem;
+}
+.tg-guide h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+.tg-step h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.tg-step-number {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: var(--tg-number-color);
+  background: var(--tg-tint);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.tg-guide p {
+  margin: 0;
+  color: #55575f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.tg-format-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.tg-format-grid article {
+  border-left: 3px solid #e99094;
+  padding: 0.15rem 1.25rem;
+}
+.tg-format-grid article:nth-child(2) {
+  border-left-color: #a4a0d3;
+}
+.tg-faq-list details {
+  border-bottom: 1px solid #e5e5e8;
+}
+.tg-faq-list details:first-child {
+  border-top: 1px solid #e5e5e8;
+}
+.tg-faq-list summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 56px;
+  padding: 0.95rem 0.25rem;
+  line-height: 1.55;
+  font-weight: 600;
+  list-style: none;
+}
+.tg-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+.tg-faq-list summary:focus-visible {
+  outline: 3px solid #ad2338;
+  outline-offset: 3px;
+}
+.tg-disclosure-mark {
+  width: 9px;
+  height: 9px;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  border-right: 1.7px solid #72737b;
+  border-bottom: 1.7px solid #72737b;
+  transform: rotate(45deg);
+}
+.tg-faq-list details[open] .tg-disclosure-mark {
+  transform: rotate(225deg);
+}
+.tg-faq-list p {
+  max-width: 80ch;
+  padding: 0 0.25rem 1.25rem;
+}
+@media (max-width: 760px) {
+  .tg-guide {
+    width: min(100% - 2rem, 36rem);
+  }
+  .tg-step-grid,
+  .tg-format-grid {
+    grid-template-columns: 1fr;
+  }
+  .tg-art-panel {
+    height: 108px;
+  }
+}

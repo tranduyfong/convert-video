@@ -1,0 +1,26 @@
+services:
+  tubego:
+    build:
+      context: .
+      args:
+        BRAND_NAME: ${BRAND_NAME:-TubeGo}
+        SITE_URL: ${SITE_URL:-http://localhost:3000}
+        YT_DLP_VERSION: ${YT_DLP_VERSION:-2026.11.23}
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"
+    environment:
+      SITE_URL: ${SITE_URL:-http://localhost:3000}
+      MAX_CONCURRENT: ${MAX_CONCURRENT:-2}
+      MAX_WAITING: ${MAX_WAITING:-8}
+      MAX_ANALYSES: ${MAX_ANALYSES:-3}
+      MAX_DURATION_SECONDS: ${MAX_DURATION_SECONDS:-1800}
+      MAX_FILE_MB: ${MAX_FILE_MB:-256}
+      JOB_TIMEOUT_SECONDS: ${JOB_TIMEOUT_SECONDS:-600}
+      FILE_TTL_SECONDS: ${FILE_TTL_SECONDS:-900}
+      TRUST_PROXY: ${TRUST_PROXY:-}
+    volumes:
+      - scratch:/app/tmp
+volumes:
+  scratch:
